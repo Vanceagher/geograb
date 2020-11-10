@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Bit.ly Shortener</title>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Sansita+Swashed&display=swap" rel="stylesheet">
+   </head>
+   <body>
+      <h1><span style="color:#EE6123;">Bit.ly</span> Shortener</h1>
+      <div id="set">
+         <input placeholder="Long Link" id="text" type="url">
+         <button onclick="myFunction()">Shorten</button>
+      </div>
+     <div id="tok">
+     <input placeholder="Bitly Auth Token" class="token" id="token" type="url">
+     </div>
+      <p id="url"></p>
+      <input style="opacity:0;" type="text" id="myInput">
+      <div id="snackbar">Link copied to clipboard.</div>
+   </body>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+    #set {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15px;
+}
+
+#tok {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.token {
+  width: 260px;
+}
+
+#url {
+  visibility: hidden;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  font-size: 20;
+  color: #000;
+}
+
+#url.show {
+  visibility: visible;
+  -webkit-animation: fadein2 0.5s;
+  animation: fadein2 0.5s;
+}
+
+h1 {
+  font-family: "Sansita Swashed", cursive;
+  text-align: center;
+  margin-top: 40vh;
+  font-size: 5vmin;
+  color: #000;
+}
+
+input {
+  color: #000;
+  margin-right: 10px;
+  border: 1px solid #000;
+  border-radius: 3px;
+  width: 185px;
+  padding-left: 10px;
+  height: 30px;
+  font-size: 12px;
+  box-shadow: 0 4px 0 #000;
+  transition: 0.3s;
+  font-family: "Open Sans", sans-serif;
+}
+
+button {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 3px;
+  height: 34px;
+  font-size: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 0 4px 0 #000;
+  transition: 0.3s;
+  font-family: "Open Sans", sans-serif;
+}
+
+button:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #000;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #000;
+}
+
+#snackbar {
+  font-family: "Open Sans", sans-serif;
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+  </style>
+  <script>
+    $( document ).ready(function() {
+    document.getElementById("token").value = localStorage.getItem("tokeninput");
+});
+
+
+function myFunction() {
+    var input = document.getElementById("text").value;
+  console.log(input);
+        var key = document.getElementById("token").value;
+  localStorage.setItem("tokeninput", key);
+    $.getJSON('https://api-ssl.bitly.com/v3/shorten?access_token=' + key + '&longUrl=' + input, function(data) {
+        var shortlink = data.data.url;
+        if (shortlink == null) {
+            document.getElementById("url").innerHTML = "An error occured";
+            var x = document.getElementById("url");
+            x.className = "show";
+
+        } else {
+            document.getElementById("url").innerHTML = "Your short link is " + shortlink;
+            document.getElementById("myInput").value = shortlink;
+
+            var copyText = document.getElementById("myInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999)
+            document.execCommand("copy");
+
+            var x = document.getElementById("url");
+            x.className = "show";
+
+            var x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function() {
+                x.className = x.className.replace("show", "");
+            }, 3000);
+
+        }
+    });
+}
+  </script>
+</html>
