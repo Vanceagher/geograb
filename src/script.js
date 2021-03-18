@@ -8,6 +8,8 @@
     }
 }, 100); */
 
+document.getElementById("time").innerHTML = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
  getLocation();
 
 function getLocation() {
