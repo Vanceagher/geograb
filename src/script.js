@@ -24,8 +24,8 @@ var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
     } else {
       fs(window.TEMPORARY,
          100,
-         document.getElementById("incog").innerHTML = "No";,
-         document.getElementById("incog").innerHTML = "Yes";);
+         document.getElementById("incog").innerHTML = "No",
+         document.getElementById("incog").innerHTML = "Yes");
     }
 
 // USER AGENT ----------------------------------------------------------------------------------------------------
