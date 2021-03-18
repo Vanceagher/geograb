@@ -18,16 +18,6 @@ function getLocation() {
   }
 }
 
-var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
-    if (!fs) {
-      document.getElementById("incog").innerHTML = "Unknown";
-    } else {
-      fs(window.TEMPORARY,
-         100,
-         document.getElementById("incog").innerHTML = "No",
-         document.getElementById("incog").innerHTML = "Yes");
-    }
-
 // USER AGENT ----------------------------------------------------------------------------------------------------
 
 $.getJSON('https://www.whatsmyua.info/api/v1/ua?ua=' + window.navigator.userAgent, function(data) {
