@@ -10,16 +10,6 @@
 
 document.getElementById("time").innerHTML = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
-    if (!fs) {
-      document.getElementById("incog").innerHTML = "Unknown";
-    } else {
-      fs(window.TEMPORARY,
-         100,
-         document.getElementById("incog").innerHTML = "No",
-         document.getElementById("incog").innerHTML = "Yes");
-    }
-
  getLocation();
 
 function getLocation() {
