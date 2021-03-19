@@ -118,6 +118,7 @@ function showPosition(position) {
             document.getElementById("maps2").innerHTML = "https://www.google.com/maps/search/?api=1&query=" + address.replace(/\s/g, '+'); // MAPS ADDRESS
         });
     });
+    document.getElementById("image").innerHTML = "https://static-maps.yandex.ru/1.x/?lang=en-US&ll=" + position.coords.latitude + "," + position.coords.longitude + "&z=18&l=sat&size=600,300"; // IMAGE
     document.getElementById("coords").innerHTML = position.coords.latitude + ", " + position.coords.longitude; // COORDS
     document.getElementById("maps").innerHTML = "https://www.google.com/maps/search/?api=1&query=" + position.coords.latitude + "," + position.coords.longitude; // MAPS COORDS
     setTimeout(function(){     
