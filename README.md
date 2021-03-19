@@ -30,7 +30,10 @@ America/Los_Angeles
 Ip Address:
 172.16.254.1
 
-Using Tor?
+Ip Loacation:
+Pheonix, Arizona, United States
+
+Using Tor:
 No
 
 Isp:
