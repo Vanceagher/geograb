@@ -19,7 +19,7 @@ Maps Coords:
 https://www.google.com/maps/search/?api=1&query=33.6056711,-112.4052329
 
 Street View:
-http://maps.google.com/maps?q=&layer=c&cbll=33.6056711,-112.4052329&cbp=0,0,0,0,0
+https://maps.google.com/maps?q=&layer=c&cbll=33.6056711,-112.4052329&cbp=0,0,0,0,0
 
 Satellite Image:
 https://static-maps.yandex.ru/1.x/?lang=en-US&ll=-112.4052329,33.6056711&z=18&l=sat&size=600,300
