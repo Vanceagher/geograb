@@ -77,6 +77,7 @@ $.getJSON('/keys.json', function(data) {
         var key = data.ipdata;
 
 $.getJSON('https://api.ipdata.co?api-key=' + key, function(data) {
+    document.getElementById("iploc").innerHTML = data.city+", "+data.region+", "+data.country_name;
     if (data.threat.is_tor == false) {
     document.getElementById("tor").innerHTML = "No";
     } else {
