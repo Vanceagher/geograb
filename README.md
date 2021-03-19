@@ -18,8 +18,14 @@ https://www.google.com/maps/search/?api=1&query=123+Curch+St,+Pheonix,+AZ+12345
 Maps Coords:
 https://www.google.com/maps/search/?api=1&query=33.6056711,-112.4052329
 
+Satellite Image:
+https://static-maps.yandex.ru/1.x/?lang=en-US&ll=-112.4052329,33.6056711&z=18&l=sat&size=600,300
+
 Coords:
 33.6056711, -112.4052329
+
+Time Zone:
+America/Los_Angeles
 
 Ip Address:
 172.16.254.1
